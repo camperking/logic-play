@@ -26,7 +26,8 @@
       },
       "externalBin": [],
       "icon": [
-        "icons/share-2.png"
+        "icons/share-2.png",
+        "icons/icon.ico"
       ],
       "identifier": "logic-play.xdb",
       "longDescription": "",
