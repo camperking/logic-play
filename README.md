@@ -14,9 +14,16 @@ This is an example of an app developed with tauri and svelte. It is a logic gate
 - [x] file save and load
 - [x] simulation of changing inputs
 
+Try load an example flip flop file from [here](https://github.com/camperking/logic-play/raw/master/examples/flipflop.lp).
+
+### Notice
+
+This application is allowed to read and write on your `$DOCUMENTS` folder only.
+
 ## Download
 
 logic-play is available for Windows and Linux
+
 https://github.com/camperking/logic-play/releases/tag/0.0.1
 
 ## Development
