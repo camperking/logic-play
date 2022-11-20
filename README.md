@@ -14,6 +14,11 @@ This is an example of an app developed with tauri and svelte. It is a logic gate
 - [x] file save and load
 - [x] simulation of changing inputs
 
+## Download
+
+logic-play is available for Windows and Linux
+https://github.com/camperking/logic-play/releases/tag/0.0.1
+
 ## Development
 
 logic-play is built with tauri & Svelte and TypeScript with `"noImplicitAny": true`
