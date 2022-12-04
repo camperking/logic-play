@@ -18,17 +18,17 @@
     <div class="segment">
         <div class="icons">
             <button on:click={() => document.location.reload()}
-                ><img src="/file.svg" alt="New" /></button
+                ><img src="file.svg" alt="New" /></button
             >
-            <button on:click={() => dispatch("open")}
+            <!-- <button on:click={() => dispatch("open")}
                 ><img src="/folder.svg" alt="Open" /></button
             >
             <button on:click={() => dispatch("save")}
                 ><img src="/save.svg" alt="Save" /></button
-            >
+            > -->
             <button on:click={() => dispatch("startStopSim")}
                 ><img
-                    src={sim_active ? "/play.svg" : "/pause.svg"}
+                    src={sim_active ? "play.svg" : "pause.svg"}
                     alt="Start Stop"
                 /></button
             >
