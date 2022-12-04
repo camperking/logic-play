@@ -68,7 +68,7 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <div class="node-control">
                 <img
-                    src="/trash.svg"
+                    src="trash.svg"
                     alt="delete node"
                     on:click={() => dispatch("delete_node", node.name)}
                 />
