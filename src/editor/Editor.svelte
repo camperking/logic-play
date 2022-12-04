@@ -141,32 +141,24 @@
         nodes = nodes;
 
         edges.forEach((edge) => {
-            const start_rect = document
+            const start_element = document
                 .getElementById(
                     "node" + edge.start.node_name + "output" + edge.start.io
-                )
-                .getBoundingClientRect();
+                );
 
-            const end_rect = document
+            const end_element = document
                 .getElementById(
                     "node" + edge.end.node_name + "input" + edge.end.io
-                )
-                .getBoundingClientRect();
+                );
 
             const rel_start_pos = {
-                x: start_rect.x - nodes[edge.start.node_name].position.x,
-                y:
-                    start_rect.y -
-                    nodes[edge.start.node_name].position.y +
-                    start_rect.height / 2,
+                x: start_element.offsetLeft + start_element.offsetWidth,
+                y: start_element.offsetTop + (start_element.offsetHeight / 2)
             };
 
             const rel_end_pos = {
-                x: end_rect.x - nodes[edge.end.node_name].position.x,
-                y:
-                    end_rect.y -
-                    nodes[edge.end.node_name].position.y +
-                    end_rect.height / 2,
+                x: end_element.offsetLeft,
+                y: end_element.offsetTop + (end_element.offsetHeight / 2)
             };
 
             edge.start.position = rel_start_pos;

@@ -64,22 +64,21 @@
                 Integrated
             </div>
         </div>
-        {#if current_tab === "io"}
-            <div>
+        <div class="tab-content">
+            {#if current_tab === "io"}
                 <button on:click={() => add_node("Input")}>Input</button>
                 <button on:click={() => add_node("Output")}>Output</button>
-            </div>
-        {:else if current_tab === "gates"}
-            <div>
+            {:else if current_tab === "gates"}
                 <button on:click={() => add_node("And")}>And</button>
                 <button on:click={() => add_node("Not")}>Not</button>
                 <button on:click={() => add_node("Or")}>Or</button>
                 <button on:click={() => add_node("Xor")}>Xor</button>
                 <button on:click={() => add_node("Nor")}>Nor</button>
-            </div>
-        {:else if current_tab === "integrated"}
-            <button on:click={() => add_node("Input")}>SR</button>
-        {/if}
+            {:else if current_tab === "integrated"}
+                <button on:click={() => add_node("Sr")}>Sr</button>
+                <button on:click={() => add_node("Rs")}>Rs</button>
+            {/if}
+        </div>
     </div>
 </div>
 
@@ -119,5 +118,9 @@
         margin-right: 1rem;
         cursor: pointer;
         font-size: large;
+    }
+
+    .tab-content button {
+        margin: 0.2rem 0.1rem 0.2rem 0.1rem;
     }
 </style>
