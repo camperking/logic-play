@@ -5,8 +5,8 @@ This is an example of an app developed with tauri and svelte. It is a logic gate
 
 ## Features
 
-- [ ] SR latch
-- [ ] RS latch
+- [x] SR latch
+- [x] RS latch
 - [ ] clock
 - [x] And, Not
 - [x] Or, Xor, Nor
@@ -16,15 +16,21 @@ This is an example of an app developed with tauri and svelte. It is a logic gate
 
 Try load an example flip flop file from [here](https://github.com/camperking/logic-play/raw/master/examples/flipflop.lp).
 
-### Notice
+## Live Demo
 
-This application is allowed to read and write on your `$DOCUMENTS` folder only.
+You can try logic-play online
+
+https://xdb.ovh/logic-play/
 
 ## Download
 
 logic-play is available for Windows and Linux
 
 https://github.com/camperking/logic-play/releases/tag/0.0.1
+
+### Notice
+
+This application is allowed to read and write on your `$DOCUMENTS` folder only.
 
 ## Development
 
