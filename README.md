@@ -16,9 +16,14 @@ This is an example of an app developed with svelte. It is a logic gate playgroun
 
 ## Live Demo
 
+
 you can try logic-play online
 
 https://xdb.ovh/logic-play/
+
+### Notice
+
+This application is allowed to read and write on your `$DOCUMENTS` folder only.
 
 ## Development
 
