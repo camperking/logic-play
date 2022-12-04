@@ -13,6 +13,8 @@
     import Or from "../nodes/Or.svelte";
     import Xor from "../nodes/Xor.svelte";
     import Nor from "../nodes/Nor.svelte";
+    import Sr from "../nodes/SR.svelte";
+    import Rs from "../nodes/RS.svelte";
 
     const node_components: { [index: string]: any } = {
         Input: Input,
@@ -22,12 +24,12 @@
         Or: Or,
         Xor: Xor,
         Nor: Nor,
+        Sr: Sr,
+        Rs: Rs
     };
 
     export let node: Node;
     node.component = node_components[node.type];
-
-    let input_buttons: Array<HTMLElement>;
 
     onMount(() => {
         dispatch("drawEdges");
