@@ -1,7 +1,7 @@
 # Logic Gate Playground
 ![alt text](./public/screenshot.png "screenshot of a flip flop")
 
-This is an example of an app developed with tauri and svelte. It is a logic gate playground IDE. A user can add gates, connect them and simulate with inputs their behaviour. The editor is draggable, pannable and zoomable. Documents can be saved and loaded again.
+This is an example of an app developed with svelte. It is a logic gate playground IDE. A user can add gates, connect them and simulate with inputs their behaviour. The editor is draggable, pannable and zoomable. Documents can be saved and loaded again.
 
 ## Features
 
@@ -14,19 +14,12 @@ This is an example of an app developed with tauri and svelte. It is a logic gate
 - [x] file save and load
 - [x] simulation of changing inputs
 
-Try load an example flip flop file from [here](https://github.com/camperking/logic-play/raw/master/examples/flipflop.lp).
-
 ## Live Demo
 
-You can try logic-play online
+
+you can try logic-play online
 
 https://xdb.ovh/logic-play/
-
-## Download
-
-logic-play is available for Windows and Linux
-
-https://github.com/camperking/logic-play/releases/tag/0.0.1
 
 ### Notice
 

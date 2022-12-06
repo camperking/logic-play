@@ -20,12 +20,14 @@
             <button on:click={() => document.location.reload()}
                 ><img src="file.svg" alt="New" /></button
             >
-            <button on:click={() => dispatch("open")}
-                ><img src="folder.svg" alt="Open" /></button
+
+            <!-- <button on:click={() => dispatch("open")}
+                ><img src="/folder.svg" alt="Open" /></button
             >
             <button on:click={() => dispatch("save")}
-                ><img src="save.svg" alt="Save" /></button
-            >
+                ><img src="/save.svg" alt="Save" /></button
+            > -->
+
             <button on:click={() => dispatch("startStopSim")}
                 ><img
                     src={sim_active ? "play.svg" : "pause.svg"}
