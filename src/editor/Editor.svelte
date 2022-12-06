@@ -1,11 +1,13 @@
 <script lang="ts">
     import { v4 as uuidv4 } from "uuid";
     import panzoom from "panzoom";
-    import { onMount } from "svelte";
+    import { onMount, createEventDispatcher } from "svelte";
     import type { Node, Target, Edge } from "../lib/interface";
 
     import NodeView from "./NodeView.svelte";
     import { updateInputs } from "../lib/graph";
+
+    const dispatch = createEventDispatcher();
 
     // bindings
     let canvas: HTMLCanvasElement;
@@ -14,6 +16,9 @@
 
     // zoom level of editor, needed for other ui actions
     export let editor_scale = 1;
+
+    let showCursorNode = false;
+    let cursorNode: Node;
 
     onMount(() => {
         const panzoom_editor = panzoom(editor, {
@@ -51,31 +56,49 @@
     export const place_node = function (e: CustomEvent<string>) {
         const node_type = e.detail;
 
+        const name = uuidv4();
+
+        const node: Node = {
+            inputs: [],
+            outputs: [],
+            update: () => {},
+            ready: false,
+            position: {
+                x: -1000,
+                y: -1000,
+            },
+            type: node_type,
+            name,
+        };
+
+        cursorNode = node;
+        
         const place_node_here = function (e: MouseEvent) {
             const origin = editor.getBoundingClientRect();
 
-            const name = uuidv4();
-
-            const node: Node = {
-                inputs: [],
-                outputs: [],
-                update: () => {},
-                ready: false,
-                position: {
-                    x: (e.clientX - origin.x) / editor_scale,
-                    y: (e.clientY - origin.y) / editor_scale,
-                },
-                type: node_type,
-                name,
+            node.position = {
+                x: (e.clientX - origin.x) / editor_scale,
+                y: (e.clientY - origin.y) / editor_scale,
             };
 
             nodes[name] = node;
             nodes = nodes;
 
             editor.removeEventListener("click", place_node_here);
+            editor.removeEventListener("mousemove", handleCursorNode);
+            editor.style.cursor = "default";
+            showCursorNode = false;
         };
 
+        const handleCursorNode = function (e: MouseEvent) {
+            cursorNode.position.x = e.clientX;
+            cursorNode.position.y = e.clientY;
+        };
+
+        showCursorNode = true;
+        editor.style.cursor = "crosshair";
         editor.addEventListener("click", place_node_here);
+        editor.addEventListener("mousemove", handleCursorNode);
     };
 
     let conn_edit_active = false;
@@ -169,6 +192,7 @@
     }
 
     function deleteNode(e: CustomEvent<string>) {
+        dispatch("stopSim");
         const node_name = e.detail;
 
         const new_edges = edges.filter(
@@ -181,6 +205,7 @@
         delete nodes[node_name];
         nodes = nodes;
         drawEdges();
+        dispatch("startSim");
     }
 
     // // // //
@@ -226,6 +251,11 @@
         {/each}
     </div>
     <canvas bind:this={canvas} />
+    {#if showCursorNode}
+        <div class="cursor-node">
+            <NodeView bind:node={cursorNode} />
+        </div>
+    {/if}
 </div>
 
 <style>
@@ -249,5 +279,9 @@
         position: absolute;
         width: inherit;
         height: inherit;
+    }
+
+    .cursor-node {
+        position: absolute;
     }
 </style>
