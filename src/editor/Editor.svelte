@@ -72,9 +72,10 @@
         };
 
         cursorNode = node;
+
+        const origin = editor.getBoundingClientRect();
         
         const place_node_here = function (e: MouseEvent) {
-            const origin = editor.getBoundingClientRect();
 
             node.position = {
                 x: (e.clientX - origin.x) / editor_scale,
@@ -91,8 +92,8 @@
         };
 
         const handleCursorNode = function (e: MouseEvent) {
-            cursorNode.position.x = e.clientX;
-            cursorNode.position.y = e.clientY;
+            cursorNode.position.x = (e.clientX - origin.x) / editor_scale;
+            cursorNode.position.y = (e.clientY - origin.y) / editor_scale;
         };
 
         showCursorNode = true;
